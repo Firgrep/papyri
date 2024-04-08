@@ -1,0 +1,15 @@
+{
+    "version": "0.2",
+    "ignorePaths": [
+        "*.lock",
+        "*.toml"
+    ],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "chrono",
+        "inflector"
+    ],
+    "ignoreWords": [],
+    "import": []
+}
