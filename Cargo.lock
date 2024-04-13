@@ -163,6 +163,7 @@ version = "0.1.0"
 dependencies = [
  "Inflector",
  "chrono",
+ "once_cell",
  "serde",
  "serde_json",
 ]

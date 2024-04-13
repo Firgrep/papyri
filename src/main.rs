@@ -1,12 +1,12 @@
+mod case_utils;
 mod handle_config;
 
 use crate::handle_config::Config;
 use chrono::Local;
+extern crate inflector;
 use std::env;
 use std::fs::File;
 use std::io::prelude::*;
-extern crate inflector;
-use inflector::Inflector;
 
 macro_rules! markdown_template {
     () => {
@@ -58,7 +58,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
 
     let mut file = File::create(&file_with_date)?;
-    let capitalized_title = title.to_title_case();
+    let capitalized_title = case_utils::qualified_capitalize(title);
 
     write!(
         &mut file,
