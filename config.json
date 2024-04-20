@@ -1,5 +1,10 @@
 {
-    "author": "Firgrep",
-    "defaultTags": ["rust", "programming", "example"],
-    "outputFolder": "./notes"
+  "markdownMetadata": {
+    "author": "Default Author",
+    "defaultTags": [
+      "tag1",
+      "tag2"
+    ]
+  },
+  "outputFolder": "./output"
 }

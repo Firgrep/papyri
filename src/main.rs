@@ -34,11 +34,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::process::exit(1);
     }
 
-    let config: Config = handle_config::Config::from_file("config.json")?;
+    let config: Config = handle_config::get_or_create_config("config.json")?;
     let title: &String = &args[1];
 
-    println!("Author: {}", config.author);
-    println!("Default Tags: {:?}", config.default_tags);
+    println!("Author: {}", config.markdown_metadata.author);
+    println!("Default Tags: {:?}", config.markdown_metadata.default_tags);
     println!("Output Folder: {}", config.output_folder);
 
     let file_name: String = title
@@ -65,8 +65,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         markdown_template!(),
         title,
         Local::now().format("%Y-%m-%dT%H:%M:%S"),
-        config.author,
-        config.default_tags.join("\", \""),
+        config.markdown_metadata.author,
+        config.markdown_metadata.default_tags.join("\", \""),
         capitalized_title
     )?;
 
