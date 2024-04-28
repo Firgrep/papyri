@@ -17,14 +17,6 @@ pub struct Config {
     pub output_folder: String,
 }
 
-// impl Config {
-//     pub fn from_file(path: &str) -> Result<Self, Box<dyn Error>> {
-//         let config_str = fs::read_to_string(path)?;
-//         let config: Config = serde_json::from_str(&config_str)?;
-//         Ok(config)
-//     }
-// }
-
 pub fn get_or_create_config(target_file: &str) -> Result<Config, std::io::Error> {
     let config = match File::open(target_file) {
         Ok(_) => {
