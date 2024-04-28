@@ -25,6 +25,10 @@ pub fn get_or_create_config(target_file: &str) -> Result<Config, std::io::Error>
             config
         }
         Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            println!(
+                "Config file not found. Creating a new one at '{}'. Customize it as needed.",
+                target_file
+            );
             // If config file not found, proceed to create a new Config with default values
             let default_config = Config {
                 markdown_metadata: MarkdownMetadataConfig {
